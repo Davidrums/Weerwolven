@@ -2,3 +2,7 @@
 	color: gray;
 	float:right; 
 }
+
+.message{
+	overflow: auto;
+}
