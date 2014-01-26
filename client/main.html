@@ -1,0 +1,18 @@
+<head>
+  <title>chat</title>
+</head>
+
+<body>
+	<div class="container">
+		{{> header}}
+  		{{> hello}}
+  		{{> footer}}
+  	</div>
+</body>
+
+<template name="hello">
+	<div>
+  		{{greeting}}
+  		<input type="button" class="btn btn-large btn-success" value="Click" />
+  	</div>
+</template>
