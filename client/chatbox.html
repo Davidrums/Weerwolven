@@ -1,0 +1,24 @@
+<template name="chatbox">
+	{{> messages}}
+ 	{{#if currentUser}}
+  		{{> chatInput}}
+	{{/if}}
+</template>
+
+<template name="messages">
+	{{#each messages}}
+		test
+	{{/each}}
+</template>
+
+<template name="chatInput">
+	<form role="form" class="form-inline" id="chatInput">
+		<div class="form-group col-xs-8">
+		    <label class="sr-only" for="message">Message</label>
+		    <textarea type="text" class="form-control" id="message" placeholder="Enter your message" rows="3"></textarea>
+		</div>
+		<div class="col-xs-4">
+			<button type="submit" class="btn btn-block btn-success">Send</button>
+		</div>
+	</form>
+</template>
