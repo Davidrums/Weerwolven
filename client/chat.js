@@ -2,7 +2,7 @@ Messages = new Meteor.Collection("messages");
 Rooms = new Meteor.Collection("rooms");
 
 Template.messages.messages = function() {
-	return Messages.find().fetch();
+	return Messages.find({}, {limit:8,sort:{timestamp:-1}});
 }
 
 Template.hello.greeting = function () {
@@ -16,3 +16,7 @@ Template.hello.events({
 	    console.log("You pressed the button");
     }
 });
+
+Template.chatInput.events({
+
+})

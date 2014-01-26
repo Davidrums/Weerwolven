@@ -7,7 +7,9 @@
 
 <template name="messages">
 	{{#each messages}}
-		test
+		<div class="well">
+			<strong>{{name}}:</strong>{{message}} <span class="chatTime">{{fTimestamp}}</span>
+		</div>
 	{{/each}}
 </template>
 
