@@ -1,4 +1,3 @@
-chatapp
+Weerwolven
 =======
-
-A multi room chatapp in meteor
+Weerwolven van wakkerdam in Meteor.
