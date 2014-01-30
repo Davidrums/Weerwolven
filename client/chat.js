@@ -3,23 +3,34 @@ Rollen = new Meteor.Collection("rollen");
 Spellen = new Meteor.Collection("spellen");
 Deelnemers = new Meteor.Collection("deelnemers");
 
-if(Meteor.userId()!==null){
-	var handle = Meteor.subscribeWithPagination("allMessages",10);
-};
+var handle;
+
+Deps.autorun(function(){
+	if(Meteor.userId()!==null && Session.get("page")==="chatNav"){
+		handle = Meteor.subscribeWithPagination("allMessages",10);
+	}
+	else{
+		if(handle!=null){
+			handle.stop();
+		}
+	}
+});
 
 Accounts.config({
 	sendVerificationEmail: true
 });
 Accounts.ui.config({
-  passwordSignupFields: 'USERNAME_AND_EMAIL'
+	passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
+
+Session.setDefault("page","chatNav");
 
 Template.messages.messages = function() {
 	return Messages.find({},{sort:{timestamp:-1}});
 }
 
 Template.hello.greeting = function () {
-    return "Welkom bij de weerwolven van Wakkerdam Online. Deze site is nog in ontwikkeling en dus nog niet representatief voor het uiteindelijke product";
+    return "Welkom bij de weerwolven van Wakkerdam Online. Deze site is nog in ontwikkeling en dus nog niet representatief voor de uiteindelijke site";
 };
 
 Template.chatInput.events({
@@ -44,7 +55,7 @@ Template.chatInput.events({
 	}	
 })
 
-Template.chatbox.events({
+Template.chat.events({
 	"click #load" : function(event){
 		handle.loadNextPage();
 	},

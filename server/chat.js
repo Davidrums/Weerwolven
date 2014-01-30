@@ -5,3 +5,4 @@ Meteor.startup(function () {
 Meteor.publish('allMessages', function(limit) {
   return Messages.find({}, {limit: limit,sort:{timestamp:-1}});
 });
+

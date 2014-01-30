@@ -1,8 +1,15 @@
 <template name="rollen">
-	{{#if currentUser}}
-  		{{> rollenLijst}}
-		{{> rollenInput}}
-		<button class="btn btn-primary" id="load">Load more</button>
-		<button id="sub">unsub</button>
+	{{#if selectedNav}}
+		rollen
 	{{/if}}
+</template>
+
+<template name="rollenLijst">
+	{{#each rollen}}
+	rol
+	{{/each}}
+</template>
+
+<template name="rollenForm">
+	form
 </template>
